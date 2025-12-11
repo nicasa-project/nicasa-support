@@ -40,7 +40,7 @@ Use View > Slideshow or press F5. You can configure slideshow settings in Prefer
 
 ### Why are thumbnails not showing?
 
-This could be due to file permissions, corrupted files, or unsupported formats. Try the solutions in our [Troubleshooting guide](/guide/troubleshooting).
+This could be due to file permissions, corrupted files, or unsupported formats. Try the solutions in our [Troubleshooting guide](troubleshooting.md).
 
 ### Can I change the interface language?
 
@@ -86,7 +86,7 @@ Nicasa needs access to your file system to read images and save settings. It doe
 
 If you can't find the answer here, please:
 
-1. Check our [full documentation](/guide)
+1. Check our [full documentation](../)
 2. Search our [GitHub issues](https://github.com/nicasa-project/nicasa-support/issues)
 3. Create a new issue if needed
 
