@@ -49,6 +49,32 @@ pnpm docs:build
 pnpm docs:preview
 ```
 
+## Deployment
+
+This documentation site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+### Manual Deployment
+
+To deploy manually:
+
+1. Build the site: `pnpm docs:build`
+2. The built files will be in `docs/.vitepress/dist`
+3. Deploy to your hosting platform
+
+### GitHub Pages Setup
+
+The repository includes a GitHub Actions workflow that automatically:
+
+- Builds the documentation on every push to `main`
+- Deploys to GitHub Pages
+- Makes the site available at `https://nicasa-project.github.io/nicasa-support`
+
+To enable GitHub Pages:
+
+1. Go to repository Settings > Pages
+2. Select "GitHub Actions" as the source
+3. The site will be available at the provided URL
+
 ## Contributing
 
 We welcome contributions to improve the documentation:
