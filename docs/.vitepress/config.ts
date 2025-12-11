@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  base: '/nicasa-support/',
   title: 'Nicasa Support',
   description: 'Technical support documentation for Nicasa application - a smooth, modern image-viewing experience',
   lastUpdated: true,

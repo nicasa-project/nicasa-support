@@ -9,6 +9,7 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "docs:deploy": "./deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": ["nicasa", "image-viewer", "documentation", "support"],
