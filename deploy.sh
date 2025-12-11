@@ -1,40 +1,50 @@
 #!/bin/bash
 
 # Deploy script for Nicasa Support documentation
-# This script builds the documentation and pushes it to gh-pages branch
+# Based on the provided deployment pattern
 
 set -e
 
 echo "🚀 Starting deployment process..."
 
-# Build the documentation
+# Create temp directory for deployment
+mkdir -p temp_deploy
+cd temp_deploy
+
+# Configure git
+git config --global user.name "GitHub Actions"
+git config --global user.email "gidcai@gmail.com"
+
+# Build the documentation in parent directory
 echo "📦 Building documentation..."
+cd ..
 pnpm docs:build
+cd temp_deploy
 
 # Check if dist directory exists
-if [ ! -d "docs/.vitepress/dist" ]; then
+if [ ! -d "../docs/.vitepress/dist" ]; then
     echo "❌ Build failed - dist directory not found"
     exit 1
 fi
 
 echo "✅ Build completed successfully"
 
-# Switch to gh-pages branch
-echo "🔄 Switching to gh-pages branch..."
-git checkout gh-pages
+# Clone gh-pages branch
+echo "📥 Cloning gh-pages branch..."
+git clone --depth 1 -b gh-pages --single-branch https://github.com/nicasa-project/nicasa-support.git gh-pages
+cd gh-pages
 
-# Remove all files except .git
-echo "🧹 Cleaning gh-pages branch..."
-git rm -rf . --ignore-unmatch
-git clean -fd
+# Clean existing files (keep .git directory)
+echo "🧹 Cleaning existing files..."
+rm -rf `find . -maxdepth 1 ! -name .git ! -name .`
 
 # Copy built files
 echo "📋 Copying built files..."
-cp -r docs/.vitepress/dist/* .
+cp -rf ../../docs/.vitepress/dist/* .
 
 # Add and commit
 echo "📝 Committing changes..."
-git add .
+git add -A .
 if git diff --staged --quiet; then
     echo "ℹ️  No changes to commit"
 else
@@ -48,9 +58,9 @@ fi
 echo "🚀 Pushing to gh-pages branch..."
 git push origin gh-pages
 
-# Switch back to main
-echo "🔙 Switching back to main branch..."
-git checkout main
+# Cleanup
+cd ../..
+rm -rf temp_deploy
 
 echo "🎉 Deployment completed successfully!"
 echo "📖 Documentation available at: https://nicasa-project.github.io/nicasa-support/"
