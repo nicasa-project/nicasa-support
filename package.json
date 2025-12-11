@@ -1,16 +1,17 @@
 {
   "name": "nicasa-support",
   "version": "1.0.0",
-  "description": "",
+  "description": "Technical support documentation for Nicasa - a smooth, modern image-viewing application",
   "main": "index.js",
+  "homepage": "https://nicasa-project.github.io/nicasa-support",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nicasa", "image-viewer", "documentation", "support"],
+  "author": "Nicasa Project",
   "license": "ISC",
   "devDependencies": {
     "vitepress": "^1.6.4"
