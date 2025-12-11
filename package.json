@@ -1,6 +1,7 @@
 {
   "name": "nicasa-support",
   "version": "1.0.0",
+  "type": "module",
   "description": "Technical support documentation for Nicasa - a smooth, modern image-viewing application",
   "main": "index.js",
   "homepage": "https://nicasa-project.github.io/nicasa-support",
